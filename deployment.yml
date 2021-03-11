@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: iib-lrq
+  name: iib-lrq
+  namespace: 3htp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: iib-lrq
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: iib-lrq
+    spec:
+      containers:
+      - env:
+        - name: LICENSE
+          value: accept
+        - name: NODENAME
+          value: LRQNode
+        - name: SERVERNAME
+          value: LRQServer
+        image: 068039659953.dkr.ecr.us-east-1.amazonaws.com/3htp:iib
+        imagePullPolicy: IfNotPresent
+        name: 3htp
+        ports:
+        - containerPort: 7800
+          protocol: TCP
+        - containerPort: 4414
+          protocol: TCP
+        resources: {}
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30

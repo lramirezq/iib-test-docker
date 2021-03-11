@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2021-03-11T04:01:51Z"
+  labels:
+    app: iib-lrq
+  name: iib-lrq
+  namespace: 3htp
+  resourceVersion: "208608327"
+  selfLink: /api/v1/namespaces/3htp/services/iib-lrq
+  uid: aaaa1bef-c49d-4db6-be6b-3a294263f9b0
+spec:
+  clusterIP: 172.20.219.235
+  externalTrafficPolicy: Cluster
+  ports:
+  - name: web
+    nodePort: 30210
+    port: 7800
+    protocol: TCP
+    targetPort: 7800
+  - name: console
+    nodePort: 30211
+    port: 4414
+    protocol: TCP
+    targetPort: 4414
+  selector:
+    app: iib-lrq
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}
