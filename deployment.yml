@@ -28,7 +28,7 @@ spec:
           value: LRQNode
         - name: SERVERNAME
           value: LRQServer
-        image: 068039659953.dkr.ecr.us-east-1.amazonaws.com/3htp:iib
+        image: 3htp:iib
         imagePullPolicy: IfNotPresent
         name: 3htp
         ports:
