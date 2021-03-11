@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="IIBDemoContenedor" targetNamespace="http://IIBDemoContenedor" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://IIBDemoContenedor" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:documentation>
+    <wsdl:appinfo source="WMQI_APPINFO">
+      <MRWSDLAppInfo imported="true">
+        <binding hasEncoding="false" imported="true" name="IIBDemoContenedorHttpBinding" originalBindingStyle="document"/>
+        <generatedXSD location="IIBDemoContenedor_InlineSchema1.xsd"/>
+      </MRWSDLAppInfo>
+    </wsdl:appinfo>
+  </wsdl:documentation>
+  
+  <wsdl:types>
+    
+        <xsd:schema targetNamespace="http://IIBDemoContenedor" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions">
+      <xsd:include schemaLocation="IIBDemoContenedor_InlineSchema1.xsd"/>
+    </xsd:schema>
+    </wsdl:types>
+  <wsdl:message name="testOperationRequestMsg">
+    <wsdl:part element="tns:testOperation" name="testOperationParameters"/>
+  </wsdl:message>
+  <wsdl:message name="testOperationResponseMsg">
+    <wsdl:part element="tns:testOperationResponse" name="testOperationResult"/>
+  </wsdl:message>
+  <wsdl:portType name="IIBDemoContenedor">
+    <wsdl:operation name="testOperation">
+      <wsdl:input message="tns:testOperationRequestMsg" name="testOperationRequest"/>
+      <wsdl:output message="tns:testOperationResponseMsg" name="testOperationResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="IIBDemoContenedorHttpBinding" type="tns:IIBDemoContenedor">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="testOperation">
+      <soap:operation soapAction="http://IIBDemoContenedor/testOperation"/>
+      <wsdl:input name="testOperationRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="testOperationResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    </wsdl:binding>
+  <wsdl:service name="IIBDemoContenedorHttpService">
+    <wsdl:port binding="tns:IIBDemoContenedorHttpBinding" name="IIBDemoContenedorHttpPort">
+      <soap:address location="http://localhost:7800/IIBDemoContenedor"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

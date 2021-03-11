@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="gen" version="8.0.4.0" xmlns:map="gen">
+    <input path="/IIBDemoContenedor_InlineSchema1.xsd"/>
+    <output path="/IIBDemoContenedor_InlineSchema1.xsd"/>
+    <namespaces>
+        <namespace kind="extension" prefix="fn" uri="http://www.w3.org/2005/xpath-functions"/>
+    </namespaces>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="testOperation_Request_Response_Mapping">
+        <input namespace="http://IIBDemoContenedor" path="mb:msg(testOperation,assembly,XMLNSC,Properties)"/>
+        <output namespace="http://IIBDemoContenedor" path="mb:msg(testOperationResponse,assembly,XMLNSC,Properties)"/>
+        <move>
+            <input path="Properties"/>
+            <output path="Properties"/>
+        </move>
+        <function ref="fn:concat">
+            <input path="testOperation/inputMsg" var="inputMsg"/>
+            <output path="testOperationResponse/outputMsg"/>
+            <param name="string1" value="$inputMsg"/>
+            <param name="string2" value="' - Respuesta desde WS IIB'"/>
+        </function>
+    </mappingDeclaration>
+</mappingRoot>

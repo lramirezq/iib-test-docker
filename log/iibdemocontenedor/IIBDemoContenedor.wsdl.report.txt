@@ -1,0 +1,13 @@
+
+
+Importing file: C:\Users\test\IBM\IntegrationToolkit90\workspace\IIBDemoContenedor\IIBDemoContenedor.wsdl
+
+The WSDL import will proceed with bindings IIBDemoContenedorHttpBinding.
+Creating wsdl schema document for platform:/resource/IIBDemoContenedor/IIBDemoContenedor.wsdl.
+Parsing wsdl binding {http://IIBDemoContenedor}IIBDemoContenedorHttpBinding.
+Parsing wsdl binding input testOperation.
+Parsing wsdl binding output testOperation.
+Processing doc style for operation testOperation.
+Populating WSDL schema IIBDemoContenedor.xsd.
+Creating file IIBDemoContenedor.xsd in the workspace.
+Copying source WSDL IIBDemoContenedor.wsdl to IIBDemoContenedor.wsdl.
